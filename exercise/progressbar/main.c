@@ -5,17 +5,23 @@
 #include "./print_percent.c"
 #include "./clear_percent.c"
 
-int main() {
-    int progress = 0; // min -> 0 ; max -> 100
+int progress = 0;
+int SCREEN_WIDTH;
+int PROGRESS_WIDTH;
 
-    const int SCREEN_WIDTH = get_terminal_width() - 5;
+int main() {
+    SCREEN_WIDTH = get_terminal_width();
+    PROGRESS_WIDTH = SCREEN_WIDTH - 5;
+
+    extern int progress; // min -> 0 ; max -> 100
+
     for (;progress<101; progress++) {
-        const int percent = get_percent(progress, SCREEN_WIDTH);
-        print_percent(percent, progress, SCREEN_WIDTH);
+        const int percent = get_percent();
+        print_percent(percent);
         fflush(stdout);
         sleep(1);
         if (progress != 100) {
-            clear_percent(SCREEN_WIDTH + 5);
+            clear_percent();
             fflush(stdout);
         }
     };

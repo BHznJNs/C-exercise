@@ -1,7 +1,11 @@
 #include <stdio.h>
 
-void print_percent(int percent, int progress, int screen_width) {
-    for (int i=0; i < screen_width; i++) {
+void print_percent(int percent) {
+    extern int progress;
+    extern int PROGRESS_WIDTH;
+
+
+    for (int i=0; i < PROGRESS_WIDTH; i++) {
         if (i < percent) {
             printf("#");
         } else {
