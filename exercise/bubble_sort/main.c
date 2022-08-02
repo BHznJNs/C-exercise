@@ -20,26 +20,19 @@ void array_printer(int array[], int size) {
 int main() {
     const int LEN = 10;
     int array[] = {9, 1, 4, 0, 2, 8, 6, 3, 7, 5};
+    int temp;
 
-    int min, min_index;
-    for (int i=0; i<LEN-1; i++) {
-        min = array[i];
-        min_index = i;
-
-        for (int j=i+1; j<LEN; j++) {
-            const int ITEM = array[j];
-            if (ITEM < min) {
-                min = ITEM;
-                min_index = j;
+    for (int i=0; i<LEN; i++) {
+        temp = array[i];
+        for (int j=0; j<LEN; j++) {
+            if (array[j] > temp) {
+                array[i] = array[j];
+                array[j] = temp;
+                temp = array[i];
             }
         }
-        // 互换位置
-        const int TEMP = array[min_index];
-        array[min_index] = array[i];
-        array[i] = TEMP;
     }
 
-    array_printer(array, LEN);
-
+    array_printer(array, 10);
     return 0;
 }
