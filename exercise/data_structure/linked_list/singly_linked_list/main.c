@@ -15,7 +15,6 @@ struct {
 
     void (*append)();
     void (*head_insert)();
-    bool (*insert)();
     int (*get)();
 } linked_list;
 
@@ -57,20 +56,20 @@ void head_insert(int value){
     linked_list.head = new_node;
 };
 // 链表插入节点
-bool insert(int index, int value) {
-    if (index > linked_list.length - 1) {
-        // 链表越界
-        return false;
-    };
+// bool insert(int index, int value) {
+//     if (index > linked_list.length - 1) {
+//         // 链表越界
+//         return false;
+//     };
 
-    Node *new_node = linked_list.create_node(value);
-    Node *target_node = linked_list.get(index);
+//     Node *new_node = linked_list.create_node(value);
+//     Node *target_node = linked_list.get(index);
 
-    new_node->next = target_node->next;
-    target_node->next = new_node;
-    linked_list.length += 1;
-    return true
-};
+//     new_node->next = target_node->next;
+//     target_node->next = new_node;
+//     linked_list.length += 1;
+//     return true
+// };
 // 链表获取节点
 int get(int index) {
     if (index > linked_list.length - 1) {
@@ -97,16 +96,15 @@ void linked_list_init() {
 
     linked_list.append = append;
     linked_list.head_insert = head_insert;
-    linked_list.insert = insert;
     linked_list.get = get;
 }
 
 int main() {
     linked_list_init();
-    linked_list.append(1);
-    linked_list.append(2);
-    linked_list.head_insert(5);
-    const int value = linked_list.get(0);
-    printf("linked_list[0]: %d", value);
+    // linked_list.append(1);
+    // linked_list.append(2);
+    // linked_list.head_insert(5);
+    // const int value = linked_list.get(0);
+    // printf("linked_list[0]: %d", value);
     return 0;
 }
