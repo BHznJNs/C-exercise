@@ -1,18 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+struct {
+    int* pr;
+    int length;
+} dynamic_array;
+
+void init() {
+    dynamic_array.pr = (int *)calloc(0, sizeof(int));
+    dynamic_array.length = 0;
+}
+
+void push(int value) {
+    const int length = dynamic_array.length;
+    int* pr = dynamic_array.pr;
+    pr = (int *)realloc(pr, (length+1)*sizeof(int));
+    pr[length] = value;
+    dynamic_array.length += 1;
+}
+
 int main() {
-    int* arr = (int *)calloc(0, sizeof(int));
-    arr[0] = 0000;
-    arr[1] = 1111;
-    arr[2] = 2222;
-    arr[3] = 3333;
-    printf("arr[0]: %d\n", arr[0]);
-    printf("arr[1]: %d\n", arr[1]);
-    printf("arr[2]: %d\n", arr[2]);
-    printf("arr[3]: %d\n", arr[3]);
-    free(arr);
-    arr = NULL;
-    // printf("arr[3]: %d", arr[3]);
+    init();
+    push(1);
+    push(2);
+    for (int i=0; i<dynamic_array.length; i++) {
+        printf("%d\n", dynamic_array.pr[i]);
+    }
     return 0;
 }

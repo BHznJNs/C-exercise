@@ -10,6 +10,7 @@ typedef struct Node {
 struct {
     int length;
     struct Node *head;
+
     struct Node *(*create_node)();
     struct Node *(*getLast)();
 
@@ -91,6 +92,7 @@ int get(int index) {
 void linked_list_init() {
     linked_list.length = 0;
     linked_list.head = NULL;
+
     linked_list.create_node = create_node;
     linked_list.getLast = getLast;
 
@@ -101,10 +103,10 @@ void linked_list_init() {
 
 int main() {
     linked_list_init();
-    // linked_list.append(1);
+    linked_list.append(1);
     // linked_list.append(2);
     // linked_list.head_insert(5);
     // const int value = linked_list.get(0);
-    // printf("linked_list[0]: %d", value);
+    printf("linked_list[0]: %d", linked_list.get(0));
     return 0;
 }

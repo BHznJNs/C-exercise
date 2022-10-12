@@ -1,11 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    int number = 1;
-    int *pointer = &number;
-    int *null_poiter = NULL;
-
-    printf("Address of pointer: %p\n", pointer);
-    printf("Value of *pointer: %d\n", *pointer);
+    int arr[] = {0, 1, 2, 3};
+    int* p = arr;
+    int** pr = &p;
+    printf("%p", *pr);
     return 0;
 }
