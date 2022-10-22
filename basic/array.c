@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 void array_printer(int array[], int array_size) {
-    for (int i = 0;i < array_size; i++) {
+	int i; 
+    for (i = 0;i < array_size; i++) {
         printf("array[%d]: %d\n", i, array[i]);
     }
 

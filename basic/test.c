@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    float test = 0;
-    int test1 = 1;
-    test = test1;
+    // long long sum = 1;
+    int a = 1000000000;
+    printf("%d", a);
     return 0;
 }

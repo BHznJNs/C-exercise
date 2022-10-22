@@ -1,8 +1,12 @@
 #include <stdio.h>
 
 int main() {
-    int n = 10;
-    int arr[] = {1, 5, 6, 2, 3, 4, 5, 6, 8, 9};
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for (int i=0; i<n; i++) {
+        scanf("%d", &arr[i]);
+    }
 
     int max_length = 0;
     int current_length = 1;
@@ -10,7 +14,7 @@ int main() {
     for (int i=0; i<n; i++) {
         int current_num = arr[i];
         if (last_num) {
-            if (current_num > last_num && (current_num - last_num) == 1) {
+            if ((current_num - last_num) == 1) {
                 current_length += 1;
             } else {
                 if (current_length > max_length) {
@@ -20,6 +24,9 @@ int main() {
             }
         }
         last_num = current_num;
+    }
+    if (current_length > max_length) {
+        max_length = current_length;
     }
     printf("%d", max_length);
     return 0;
